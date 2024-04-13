@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <title>News Alert</title>
+        <script src="script.js"></script> 
+        <link rel="icon" href="logo2.png" type="image/x-logo">  
+    </head>
+    <body>
+        <header>
+
+            <div class="menu-class" id="menuClass" onclick="toggleMenu()" style="cursor: pointer;">
+                <svg id="before" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+                    <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+                </svg>
+                <svg id="after" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+
+            </div>
+            <div class="menu-content" id="menuContent">
+                <!-- Your menu items go here -->
+                <div id="account"><a href="#" style="text-decoration: none; color: inherit;color: #555;font-weight: 100;"><img src="https://github.com/munikumar2003/newsalert/blob/main/account.png?raw=true" height="20px" width="20px" style="margin-left: 10px;"> Account</a></div>
+                <div id="account"><a href="#" style="text-decoration: none; color: inherit;color: #555;font-weight: 100;"><img src="https://github.com/munikumar2003/newsalert/blob/main/settings.png?raw=true" height="20px" width="20px" style="margin-left: 10px;"> Settings</a></div>
+                <div id="account"><a href="#" style="text-decoration: none; color: inherit;color: #555;font-weight: 100;"><img src="https://github.com/munikumar2003/newsalert/blob/main/account.png?raw=true" height="20px" width="20px" style="margin-left: 10px;"> Contact</a></div>
+                <br><br><button style="margin-left: 37%; text-align: center; background-color: #203966; border-radius: 10px; height: 30px; width: 55px; color: white;">Logout</button>
+            </div>
+
+            <div class="login-class">
+                <button onclick="gotologin()" type="button" value="Login" style="height: 30px; border-radius: 5px; border-color: #203966; font-weight: bold;cursor: pointer; color: #203966;">Login</button>
+            </div>
+
+            <div class="register-class">
+                <button onclick="gotoregister()" type="button" value="Register" style="height: 30px; border-radius: 5px; border-color: #203966; font-weight: bold; cursor: pointer; color: #203966;">Register</button>
+            </div>
+
+            <div id="weather-container">
+                Tirupati<br>
+                <!--<img src="temperature.png" height="30px" width="30px">-->
+                <span id="temperature">Loading...</span>
+            </div>
+            <div class="search-class">
+                <input type="text" id="search" placeholder="Enter your search                           ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-search" viewBox="0 0 14 16" style="margin-left:-25px;padding-top:5px;">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg>
+            </div>
+
+            <div class="live-class">
+                <a href="">Live</a>
+            </div>
+            <div class="logo-class">
+                <img src="logo2.png" alt="logo-image" height="30px" width="30px">
+                <b><a href="main.html" style="text-decoration: none; color: inherit;"> NewsAlert </a></b>
+            </div>
+        </header>
+        <nav>
+            <div class="home-class">
+                <a onclick="scrollToClass1()" style="color: #203966;">Home</a>
+            </div>
+
+            <div class="trending-class">
+                <a onclick="scrollToClass2()" style="color: #203966;">Trending</a>
+            </div>
+
+            <div class="latest-class">
+                <a onclick="scrollToClass3()" style="color: #203966;">Latest</a>
+            </div>
+
+            <div class="updates-class">
+                <a onclick="scrollToClass4()" style="color: #203966;">Updates</a>
+            </div>
+
+            <div class="last24-class">
+                <a onclick="scrollToClass5()" style="color: #203966;">Last 24 Hours</a>
+            </div>
+
+            <div class="sports-class">
+                <a onclick="scrollToClass5()" style="color: #203966;">Sports</a>
+            </div>
+            
+            <div class="entertainment-class">
+                <a onclick="scrollToClass5()" style="color: #203966;">Entertainment</a>
+            </div>
+
+            <div class="education-class">
+                <a onclick="scrollToClass6()" style="color: #203966;">Education</a>
+            </div>
+
+            <div class="international-class">
+                <a onclick="scrollToClass6()" style="color: #203966;">International</a>
+            </div>
+        </nav>
+        <main> 
+            <div class="sidebar-class">
+                <div class="trending-today">
+                    <br>
+                    <b style="color: green;">Trending Today</b>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Lok Sabha polls 2024</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Badaun double murder case</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">ShahidKapoor kisses VijayDeverakonda</a></p>
+                </div>
+                <div class="trending-today">
+                    <br>
+                    <b style="color: green">Top Stories</b>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">PM Modi at Startup Mahakumbh</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Malayam SuperStar at Tirumala</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Electoral Bond Data</a></p>
+                </div>
+                <div class="trending-today">
+                    <br>
+                    <b style="color: green">Health</b>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">World Oral Health Day.</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Intermittent Fasting link to 91% risk</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">WHO warns increasing measles cases</a></p>
+                </div>
+                <div class="trending-today">
+                    <br>
+                    <b style="color: green">Business</b>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Nifty,Sensex rise on buying auto&metals</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">MG Motor India targets 1million EVs</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Anil Ambani-led Reliance Power shares</a></p>
+                </div>
+                <div class="trending-today">
+                    <br>
+                    <b style="color: green;">Technology</b>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Apple's tie - up with Google Cloud</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Truecaller bring AI Spam Call Block</a></p>
+                        <p id="side-div" ><a href="#" style="text-decoration: none;color: inherit;">Realme Narzo 70 pro 5G Vs Redmi Note 13 pro 5G</a></p>
+                </div>
+            </div>
+            <div class="main-class-1" id="class-1">
+                <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Home ></b></h3>
+                <hr style="margin-bottom: 15px;">
+
+                <div class="news" id="news-1">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-3.webp?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        Sundar Pichai, Google CEO, will be fired <br>or he will resign, predicts this market <br>veteran...
+                    </a>
+                    <br><br>
+                    <div id="news1-time" style="font-size: 13px; float: left; padding-right: 190px;"> 
+                        <script>
+                            updateDynamicTimeNews1();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/times-of-india.png?raw=true" height="10%" width="20%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+
+                <div class="news" id="news-2">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-2.jpg?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        Haryana Home Minister Anil Vij assures <br>Assembly of CBI probe into killing of INLD <br>State chief...
+                    </a>
+                    <br><br>
+                    <div id="news2-time" style="font-size: 13px; float: left; padding-right: 190px;"> 
+                        <script>
+                            updateDynamicTimeNews2();
+                            setInterval(updateDynamicTime, 60000);
+                        </script> 
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/the-hindu-logo.png?raw=true" height="10%" width="20%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+
+                <div class="news" id="news-3">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-1.jpg?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        Less than 5% of Indians are now expected to <br>be below the poverty line, 
+                        and extreme <br>destitution has almost...
+                    </a>
+                    <br><br>
+                    <div id="news3-time" style="font-size: 13px; float: left; padding-right: 190px;">
+                        <script>
+                            updateDynamicTimeNews3();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>  
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/hans-india-logo.png?raw=true" height="10%" width="20%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+
+                <div class="news" id="news-4">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-4.jpg?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        My working style is similar to PM Modi, <br>Amit Shah, don't intend to disrespect, <br>Ajit Pawar on joining BJP
+                    </a>
+                    <br><br>
+                    <div id="news4-time" style="font-size: 13px; float: left; padding-right: 240px;">  
+                        <script>
+                            updateDynamicTimeNews4();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/mint-logo.png?raw=true" height="10%" width="10%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+
+                <div class="news" id="news-5">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-5.jpg?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        Randeep Hooda says he locked himself up in <br>jail to prepare for Savarkar biopic                  
+                    </a>
+                    <br><br><br>
+                    <div id="news5-time" style="font-size: 13px; float: left; padding-right: 190px;"> 
+                        <script>
+                            updateDynamicTimeNews5();
+                            setInterval(updateDynamicTime, 60000);
+                        </script> 
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/hindustan-times-logo.jpg?raw=true" height="10%" width="20%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+
+                <div class="news" id="news-6">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-6.jpg?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        PM Modi launches 2,000 railway projects <br>worth ₹41,000 crore                  
+                    </a>
+                    <br><br><br>
+                    <div id="news6-time" style="font-size: 13px; float: left; padding-right: 190px;">
+                        <script>
+                            updateDynamicTimeNews6();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>  
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/hindustan-times-logo.jpg?raw=true" height="10%" width="20%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+
+                <div class="news" id="news-5">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-7.webp?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        Long Queues, Empty Buckets In "Parched" <br>Bengaluru, No Water Supply Tomorrow                  
+                    </a>
+                    <br><br><br>
+                    <div id="news7-time" style="font-size: 13px; float: left; padding-right: 190px;">  
+                        <script>
+                            updateDynamicTimeNews7();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/ndtv-logo.jpg?raw=true" height="10%" width="20%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+
+                <div class="news" id="news-6">
+                    <div>
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-8.webp?raw=true" id="i-1">
+                    </div>
+                    <a href="" style="font-size: 18px;">
+                        MEA reacts to reports of Indians with Russian <br>Army seeking help for discharge              
+                    </a>
+                    <br><br><br>
+                    <div id="news8-time" style="font-size: 13px; float: left; padding-right: 190px;"> 
+                        <script>
+                            updateDynamicTimeNews8();
+                            setInterval(updateDynamicTime, 60000);
+                        </script> 
+                    </div>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/the-hindu-logo.png?raw=true" height="10%" width="20%">
+                    </a>
+                    <br>
+                    <hr style="margin-top: 12px;">
+                </div>
+            </div>
+
+            <div class="main-class-2" id="class-2">
+                <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Trending News ></b></h3>
+                <hr style="margin-bottom: 15px;">
+                <div class="trending-news" id="latest-news-1">
+                    <img id="trending-news-img" src="https://github.com/munikumar2003/newsalert/blob/main/trending-news-1.jpg?raw=true">
+                    <br><br>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/mint-logo.png?raw=true" height="10px" width="50px">
+                    </a>
+                    <br><br>
+                    <a href="" style="font-size: 18px;">
+                        The government has set up groups of officials to look into proposed regulatory changes and 
+                        sought suggestions from bodies representing chartered accountants of India and company secretaries
+                    </a>
+                    <br><br>
+                    <div id="news9-time" style="font-size: 13px; float: left; padding-right: 150px;"> 
+                        <script>
+                            updateDynamicTimeNews9();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                </div>
+                <div class="vertical-line"><hr></div>
+                <div class="trending-news">
+                    <img id="trending-news-img" src="https://github.com/munikumar2003/newsalert/blob/main/trending-news-4.webp?raw=true">
+                    <br><br>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/times-of-india.png?raw=true" height="10px" width="100px">
+                    </a>
+                    <br><br>
+                    <a href="" style="font-size: 18px;">
+                        PM Narendra Modi inaugurated Amul's Banas Kashi Sankul milk processing
+                        unit in Varanasi, the largest plant of Amul in the city. The unit, located
+                         at UPSIDA Agro park in Karkhiyaon,
+                    </a>
+                    <br><br><br>
+                    <div id="news10-time" style="font-size: 13px; float: left; padding-right: 150px;"> 
+                        <script>
+                            updateDynamicTimeNews10();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                </div>
+                <div class="vertical-line"><hr></div>
+                <div class="trending-news">
+                    <img id="trending-news-img" src="https://github.com/munikumar2003/newsalert/blob/main/trending-news-3.jpg?raw=true">
+                    <br><br>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/dna-logo.png?raw=true" height="15px" width="80px">
+                    </a>
+                    <br><br>
+                    <a href="" style="font-size: 18px;">
+                        Himachal Pradesh chief minister Sukhvinder Singh Sukhu on Wednesday claimed 
+                        to have tided over the imminent threat to the government through some rebel MLAs...
+                    </a>
+                    <br><br><br>
+                    <div id="news11-time" style="font-size: 13px; float: left; padding-right: 150px;"> 
+                        <script>
+                            updateDynamicTimeNews11();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                </div>
+                <div class="vertical-line"><hr></div>
+                <div class="trending-news">
+                    <img id="trending-news-img" src="https://github.com/munikumar2003/newsalert/blob/main/trending-news-2.jpg?raw=true">
+                    <br><br>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/hindustan-times-logo.jpg?raw=true" height="10px" width="100px">
+                    </a>
+                    <br><br>
+                    <a href="" style="font-size: 18px;">
+                        Central Bureau of Investigation (CBI) has issued summons to Samajwadi Party chief 
+                        Akhilesh Yadav as witness tomorrow, 29 February, in Uttar Pradesh illegal mining case.                    
+                    </a>
+                    <br><br><br>
+                    <div id="news12-time" style="font-size: 13px; float: left; padding-right: 150px;"> 
+                        <script>
+                            updateDynamicTimeNews12();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="main-class-3" id="class-3">
+                <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Latest News ></b></h3>
+                <hr style="margin-bottom: 15px;">
+                <div class="latest-news">
+                    <div id="trending-img">
+                        <a href=""><img src="https://github.com/munikumar2003/newsalert/blob/main/latest-news-1.jpg?raw=true"></a>
+                    </div>
+                    <b style="color: #203966;"><a href="" style="font-size: 19px;">'Go back and play Ranji...': BCCI wants to release 
+                        Rajat Patidar from India squad but <br>KL Rahul worries selectors - Report </a></b>
+                    <p>If Rahul regains his fitness on time then the team management doesn't see any point 
+                    in holding Rajat Patidar in the squad for the India vs England 5th Test.The BCCI 
+                    selection committee is in a fix about a couple of players before the <br>fifth and final Test against England.</p>
+                    <div id="news13-time" style="font-size: 13px; float: left; padding-right: 150px;"> 
+                        <script>
+                            updateDynamicTimeNews13();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                    <a href="" style="margin-left: 500px;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/hindustan-times-logo.jpg?raw=true" height="10px" width="100px">
+                    </a>
+                </div>
+                <hr>
+                <div class="latest-news">
+                    <div id="trending-img">
+                        <a href=""><img src="https://github.com/munikumar2003/newsalert/blob/main/latest-news-2.jpg?raw=true"></a>
+                    </div>
+                    <b style="color: #203966;"><a href="" style="font-size: 19px;">Himachal Pradesh political crisis live updates: 
+                        Assembly budget session adjourned sine <br>die; Congress rushes observers to Shimla</a></b>
+                    <p>Following a dramatic Rajya Sabha election, which was marred by cross-voting and delivered the Congress-ruled
+                        <br>State's lone Rajya Sabha seat to the BJP candidate, the Himachal Pradesh government finds itself facing a
+                        political crisis. </p>
+                    <div id="news14-time" style="font-size: 13px; float: left; padding-right: 150px;"> 
+                        <script>
+                            updateDynamicTimeNews14();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                    <a href="" style="margin-left: 500px;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/the-hindu-logo.png?raw=true" height="10px" width="100px">
+                    </a>
+                </div>
+                <hr>
+                <div class="latest-news">
+                    <div id="trending-img">
+                        <a href=""><img src="https://github.com/munikumar2003/newsalert/blob/main/latest-news-4.webp?raw=true"></a>
+                    </div>
+                    <b style="color: #203966;"><a href="" style="font-size: 19px;">Massive Fire Breaks Out At Under-Construction 
+                        Rapid Rail Station In Meerut</a></b>
+                    <p>A massive fire broke out in an under-construction RRTS station under Pallavpuram Police Station limits in 
+                        Meerut <br>on Wednesday.Visuals from the spot showed flames engulfing the under-construction part of the RRTS project.
+                        <br>The fire tenders were seen making arrangements to reach the top of the platform to control the fire.</p>
+                    <div id="news15-time" style="font-size: 13px; float: left; padding-right: 150px;"> 
+                        <script>
+                            updateDynamicTimeNews15();
+                            setInterval(updateDynamicTime, 60000);
+                        </script>
+                    </div>
+                    <a href="" style="margin-left: 500px;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/ndtv-logo.jpg?raw=true" height="10px" width="100px">
+                    </a>
+                </div>
+            </div>
+            <div class="main-class-4" id="class-4">
+                <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Updates ></b></h3>
+                <hr style="margin-bottom: 15px;">
+                <div class="updates-news">
+                    <br>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/hindustan-times-logo.jpg?raw=true" height="25px" width="60%" style="padding-left: 20%">
+                    </a>
+                    <hr color="#203966">
+                    <div style="float: left; position: relative; padding-top: 10px; height: 30px; width: 80%;border-radius: 10px; margin-left: 10%;background-color: #203966;color: white; text-align: center;">
+                        Top headlines
+                    </div>
+                    <div style="height: 20%; width: 100%; margin-top: 20%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-3.webp?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">Pichai, Google CEO, will <br>be fired or he will resign,<br>predicts this market</p></a>
+                    </div>
+                    <hr width="90%" align="center">
+                    <div style="height: 20%; width: 100%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-6.jpg?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">PM Modi launches 2,000 railway projects worth ₹41,000 crore</p></a>
+                    </div>
+                    <hr width="90%" align="center">
+                    <div style="height: 20%; width: 100%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/latest-news-1.jpg?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">'Go back and play Ranji...': BCCI wants to release <br>Rajat Patidar</p></a>
+                    </div>
+                </div>
+                <div class="updates-news">
+                    <br>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/ndtv-logo.jpg?raw=true" height="25px" width="60%" style="padding-left: 20%">
+                    </a>
+                    <hr color="#203966">
+                    <div style="float: left; position: relative; padding-top: 10px; height: 30px; width: 80%;border-radius: 10px; margin-left: 10%;background-color: #203966;color: white; text-align: center;">
+                        Top headlines
+                    </div>
+                    <div style="height: 20%; width: 100%;margin-top: 20%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-7.webp?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">Long Queues, Empty Buckets In "Parched" Bengaluru, No Water <br>Supply Tomorrow</p></a>
+                    </div>
+                    <hr>
+                    <div style="height: 20%; width: 100%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/home-news-8.webp?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">MEA reacts to reports of Indians with Russian Army seeking help for discharge </p></a>
+                    </div>
+                    <hr>
+                    <div style="height: 20%; width: 100%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/latest-news-4.webp?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">Massive Fire Breaks Out At Under-Construction Rapid Rail Station In Meerut</p></a>
+                    </div>
+                </div>
+                <div class="updates-news">
+                    <br>
+                    <a href="">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/mint-logo.png?raw=true" height="25px" width="40%" style="padding-left: 30%">
+                    </a>
+                    <hr color="#203966">
+                    <div style="float: left; position: relative; padding-top: 10px; height: 30px; width: 80%;border-radius: 10px; margin-left: 10%;background-color: #203966;color: white; text-align: center;">
+                        Top headlines
+                    </div>
+                    <div style="height: 20%; width: 100%;margin-top: 20%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/updates-news-1.jpg?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">Accenture to expand commercial services with Mindcurv acquisition</p></a>
+                    </div>
+                    <hr>
+                    <div style="height: 20%; width: 100%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/updates-news-3.jpg?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">Bitcoin at $59,000: Will this crypto rally mark the repeat of Nov 2021?</p></a>
+                    </div>
+                    <hr>
+                    <div style="height: 20%; width: 100%;">
+                        <img src="https://github.com/munikumar2003/newsalert/blob/main/updates-news-2.jpg?raw=true" style="float: right; position: relative; border-radius: 10px; margin-right: 10px;" height="100%" width="35%">
+                        <a href="" style="text-decoration: underline; color: inherit; margin-top: 50px;"><p style="padding-top: 20px; margin-left: 10px;">Accenture to expand commercial services with Mindcurv acquisition</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-class-5">
+                <div class="box" id="class5" onpointerenter="changeContent()" onpointerleave="originalContent()">
+                    <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Last24Hr</b></h3>
+                    <hr style="margin-bottom: 15px;">
+                    <div  id="two" style="height: 43%; width: 100%; border: 1px solid black; margin-bottom: 20px; border-radius: 10px; box-shadow: 1px 1px 5px #203966;">
+                        <div style="width: 100%;margin-top: 10px;">
+                            <img src="https://github.com/munikumar2003/newsalert/blob/main/last24-news-1.jpg?raw=true" height="50%" width="80%"style="border-radius: 10px; margin-left:10%">
+                        </div>
+                        <div>
+                            <b><p style="padding-left: 10px;">Jamtara train accident: 2 crushed to death, many injured in Jharkhand</p></b>
+                        </div>
+                    </div>
+                    <div id="three" style="height: 43%; width: 100%; border: 1px solid black; margin-bottom: 20px; border-radius: 10px; box-shadow: 1px 1px 5px #203966;">
+                        <div style="width: 100%;margin-top: 10px;">
+                            <img src="https://github.com/munikumar2003/newsalert/blob/main/last24-news-2.jpg?raw=true" height="50%" width="80%"style="border-radius: 10px; margin-left:10%">
+                        </div>
+                        <div>
+                            <b><p style="padding-left: 10px;">Sheikh Shahjahan, TMC leader accused in Sandeshkhali violence case, arrested</p></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" id="class-5i" onpointerenter="changeContent1()" onpointerleave="originalContent1()">
+                    <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Sports</b></h3>
+                    <hr style="margin-bottom: 15px;">
+                    <div  id="four" style="height: 43%; width: 100%; border: 1px solid black; margin-bottom: 20px; border-radius: 10px; box-shadow: 1px 1px 5px #203966;">
+                        <div style="width: 100%;margin-top: 10px;">
+                            <img src="https://github.com/munikumar2003/newsalert/blob/main/sports1.jpg?raw=true" width="80%" height="50%" style="border-radius: 10px; margin-left:10%;">
+                        </div>
+                        <div>
+                            <b><p style="padding-left: 10px;">All-Round Sunil Narine Guides Kolkata Knight Riders,Third Consecutive Win</p></b>
+                        </div>
+                    </div>
+                    <div id="five" style="height: 43%; width: 100%; border: 1px solid black; margin-bottom: 20px; border-radius: 10px; box-shadow: 1px 1px 5px #203966;">
+                        <div style="width: 100%;margin-top: 10px;">
+                            <img src="https://github.com/munikumar2003/newsalert/blob/main/sports-2.jpg?raw=true" height="40%" width="80%" style="border-radius: 10px; margin-left:10%;">
+                        </div>
+                        <div>
+                            <b><p style="padding-left: 10px;">Suryakumar Yadav likely to play for Mumbai Indians against Delhi Capitals</p></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" id="class-5ii" onpointerenter="changeContent2()" onpointerleave="originalContent2()">
+                    <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Entertainment</b></h3>
+                    <hr style="margin-bottom: 15px;">
+                    <div  id="six" style="height: 43%; width: 100%; border: 1px solid black; margin-bottom: 20px; border-radius: 10px; box-shadow: 1px 1px 5px #203966;">
+                        <div style="width: 100%;margin-top: 10px;">
+                            <img src="https://github.com/munikumar2003/newsalert/blob/main/ent-1.jpeg?raw=true" height="50%" width="80%"style="border-radius: 10px; margin-left:10%">
+                        </div>
+                        <div>
+                            <b><p style="padding-left: 10px;">Family Star faces censor board’s objections over cuss words</p></b>
+                        </div>
+                    </div>
+                    <div id="seven" style="height: 43%; width: 100%; border: 1px solid black; margin-bottom: 20px; border-radius: 10px; box-shadow: 1px 1px 5px #203966;">
+                        <div style="width: 100%;margin-top: 10px;">
+                            <img src="https://github.com/munikumar2003/newsalert/blob/main/ent-2.jpeg?raw=true" height="50%" width="80%"style="border-radius: 10px; margin-left:10%">
+                        </div>
+                        <div>
+                            <b><p style="padding-left: 10px;">Maidaan is 3 hours and 1 minute long; passed by CBFC with ZERO cuts</p></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-class-6" id="class-6">
+                <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>Education ></b></h3>
+                <hr style="margin-bottom: 15px;">
+                <div style="height: 200px;width: 1150px;display: flex;">
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/education-1.jpg?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">Less than 50% IIT Bombay students enrolled for campus placement; 36% of them still jobless</p></a>
+                    </div>
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/education-2.jpg?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">Australia cracks down on international students looking to work rather than study</p></a>
+                    </div>
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/education-3.jpg?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">JEE Main 2024 Session 2: NTA releases admit cards, guidelines for April 4, 5 and 6 exams. Details here</p></a>
+                    </div>
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/education-4.jpg?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">Class 8 Student From Nashik Sets Guinness World Record For Fastest Mental Addition</p></a>
+                    </div>
+                </div>
+                <h3 style="margin-bottom: 5px; padding-left: 5px; margin-top: 10px; color: #203966;"><b>International ></b></h3>
+                <hr style="margin-bottom: 15px;">
+                <div style="height: 200px;width: 1150px;display: flex;">
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/international-1.jpg?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">Dramatic Visuals Surface As Taiwan Rocked By 'Strongest Earthquake in 25 Years'</p></a>
+                    </div>
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/international-2.png?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">Iran says 'US must answer' for Israeli strike in Syria which killed 3 top generals</p></a>
+                    </div>
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/international-3.jpg?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">US Visa Fee Hike Comes into Effect from April, What Does It Mean for Families, Employers, Investor Applicants?</p></a>
+                    </div>
+                    <div id="educational-div">
+                        <a href="#" style="color: inherit; text-decoration: none;"><div id="educational-div1"><img src="https://github.com/munikumar2003/newsalert/blob/main/international-4.jpg?raw=true" style="height: 100px;width: 250px;"></div><p style="margin-left: 5px;">NSA Ajit Doval condemns terror, says need to shun ‘double standards’ on terrorism</p></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="footer-div">
+                <address id="address">
+                    <br><b>&nbsp;&nbsp;&nbsp;&nbsp;Address</b><br><br>
+                    &nbsp;&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                    </svg>
+                    A-203, 2nd Floor, Balaji Hostel<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Opp. SVEC, A.Rangampet,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tirupati, A.P. - 517102.
+                </address>
+                <div id="contact-us">
+                    <br><b>Contact Us</b><br><br>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                    </svg>
+                     +91 7672070559<br><br>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                    </svg>
+                     munikumarchemuru2003@gmail.com<br><br>
+                     Available - 24/7 hours.
+                </div>
+            </div>
+            <div id="follow-us">
+                &nbsp;&nbsp;&nbsp;&nbsp;<b>Follow Us </b><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+                &nbsp;&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16" style="background-color: black;">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                </svg>
+                &nbsp;&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                </svg>
+                &nbsp;&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                </svg>
+                &nbsp;&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0"/>
+                </svg>
+            </div>
+            <br><br><br>
+            &copy; 2024 NewsAlert. All Rights Reserved.
+        </footer>
+    </body>
+</html>

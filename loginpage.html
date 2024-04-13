@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="logo2.png" type="image/x-logo">  
+    <Script src="script.js"></Script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h2 {
+            color:#203966;
+        }
+
+        .login-container h3 {
+            color: #333;
+        }
+
+        .login-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+            align-self: flex-start;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        .forget-password {
+            text-align: right;
+            margin-bottom: 25px;
+            float:right;
+        }
+
+        .login-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .login-button:hover {
+            background-color: #45a049;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .social-links div {
+          cursor:pointer;
+          position: relative;
+        }
+        .hr-class {
+          font-size: 20px; 
+          margin-top: 40px;
+          margin-bottom: 30px; 
+          height: 20px; 
+          width: 100%; 
+          display: flex;
+        }
+        .hr-class hr {
+          height: 1px; 
+          border: 1px solid black;
+          background-color: black;
+        }
+        #password-toggle {
+            margin-left: -188px; 
+            margin-bottom: -10px;
+            cursor: pointer;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>NewsAlert</h2>
+        <h3>Login</h3>
+        <form class="login-form" action="login.php" method="post">
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <p id="password-toggle" onclick="togglePasswordVisibility()" >Show password</p><br>
+            <div class="forget-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <div class="hr-class"><hr width="40%"> or <hr width="40%"></div>
+        <div class="social-links">
+            <div style="font-size: 18px; text-align: center;">
+              <img src="https://github.com/munikumar2003/newsalert/blob/main/google image.png?raw=true" alt="Google"><a href="" style="text-decoration: none;">Continue with google</a>
+            </div>
+            <br>
+            <div style="font-size: 18px; text-align: center;">
+              <img src="https://github.com/munikumar2003/newsalert/blob/main/facebook image.png?raw=true" alt="Facebook"><a href="" style="text-decoration: none;">Continue with facebook</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
